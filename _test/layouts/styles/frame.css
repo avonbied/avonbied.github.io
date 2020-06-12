@@ -1,0 +1,10 @@
+* {
+    border: 1px solid black !important;
+    background-color: rgba(128,128,128,0.1) !important;
+}
+html {
+    border: none !important;
+}
+body {
+    border: 1px solid black !important;
+}
