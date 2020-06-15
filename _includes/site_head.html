@@ -1,9 +1,6 @@
 <header id="site_head" class="section">
   <h1 class="nav_title" id="site_title">LEX</h1>
   <nav id="site_nav">
-    <a class="nav_button" href="#">Home
-    </a><a class="nav_button" href="#">About
-    </a><a class="nav_button" href="#">Projects
-    </a><a class="nav_button" href="#">Contact</a>
+    {% for item in site.data.pages.nav %}<a class="nav_button" href="{{ item.url }}">{{ item.name }}</a>{% endfor %}
   </nav>
 </header>
