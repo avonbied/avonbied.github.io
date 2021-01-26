@@ -63,3 +63,28 @@ social:
 strict_front_matter : true
 
 timezone: "America/Chicago"
+
+plugins:
+  # - jekyll-octicons
+  # GitHub Defaults (no override) 
+  - jekyll-coffeescript
+  - jekyll-default-layout
+  - jekyll-gist
+  - jekyll-github-metadata
+  - jekyll-optional-front-matter
+  - jekyll-paginate
+  - jekyll-readme-index
+  - jekyll-relative-links
+  - jekyll-titles-from-headings
+
+# GitHub Defaults (no override)
+lsi: false
+safe: true
+source: /docs
+incremental: false
+highlighter: rouge
+gist:
+  noscript: false
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
