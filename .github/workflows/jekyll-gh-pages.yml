@@ -23,7 +23,7 @@ jobs:
           ruby-version: 2.7
       
       - name: Install dependencies and build
-        uses: limjh16/jekyll-action-ts
+        uses: limjh16/jekyll-action-ts@v2
 
 
       - name: Deploy the site
