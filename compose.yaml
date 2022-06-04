@@ -1,0 +1,11 @@
+services:
+  gh-page:
+    image: node:lts-alpine
+    restart: on-failure
+    ports:
+      - 8001:3000
+    working_dir: /home/node/app
+    volumes:
+      - ./src:/home/node/app:rw
+      - /home/node/app/.next
+    command: "yarn dev"

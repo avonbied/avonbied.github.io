@@ -1,0 +1,90 @@
+# GitHub Defaults (no override)
+lsi: false
+safe: true
+source: ./src
+incremental: false
+highlighter: rouge
+gist:
+  noscript: false
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
+
+plugins:
+  # - jekyll-octicons
+  # GitHub Defaults (no override) 
+  - jekyll-coffeescript
+  - jekyll-default-layout
+  - jekyll-gist
+  - jekyll-github-metadata
+  - jekyll-optional-front-matter
+  - jekyll-paginate
+  - jekyll-readme-index
+  - jekyll-relative-links
+  - jekyll-titles-from-headings
+
+
+languageCode: "en-us"
+
+title: "Lex von Biedenfeld"
+email: alexvonbiedenfeld@gmail.com
+description: ""
+
+collections:
+  pages:
+    output: true
+    permalink: /:title:output_ext
+
+defaults: [
+    {
+      scope: { path: "_pages", type: "pages" },
+      values: { layout: "default" }
+    },
+    {
+      scope: { path: "index.html", type: "pages" },
+      values: { layout: "default" }
+    }
+]
+
+# markdown: kramdown
+
+liquid:
+  error_mode        : strict
+  strict_filters    : true
+  strict_variables  : true
+
+permalink: /:year/:month/:title:output_ext
+
+social:
+  github: "avonbied"
+  linkedin: "avonbied"
+  twitter: "avonbied"
+
+strict_front_matter : true
+
+timezone: "America/Chicago"
+
+plugins:
+  # - jekyll-octicons
+  # GitHub Defaults (no override) 
+  - jekyll-coffeescript
+  - jekyll-default-layout
+  - jekyll-gist
+  - jekyll-github-metadata
+  - jekyll-optional-front-matter
+  - jekyll-paginate
+  - jekyll-readme-index
+  - jekyll-relative-links
+  - jekyll-titles-from-headings
+
+# GitHub Defaults (no override)
+lsi: false
+safe: true
+source: /docs
+incremental: false
+highlighter: rouge
+gist:
+  noscript: false
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
