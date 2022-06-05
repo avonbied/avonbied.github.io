@@ -1,14 +1,16 @@
 
 import Header from '../components/header';
 import Footer from '../components/footer';
-
-const title = 'My Projects'
+import Head from 'next/head';
 
 const Layout = ({ children }) => {
 	return(
 	<>
+	<Head>
+		<link rel="stylesheet" href="/styles/reset.css" />
+		<link rel="stylesheet" href="/styles/main.css" />
+	</Head>
 	<Header/>
-	<h1>{title}</h1>
 	<main>{children}</main>
 	<Footer/>	
 	</>
