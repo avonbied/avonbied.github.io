@@ -9,9 +9,12 @@
 			"WORK_DIR": "${containerWorkspaceFolder}"
 		}
 	},
+	"mounts": [
+		"source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume",
+		"source=${localWorkspaceFolderBasename}-astro,target=${containerWorkspaceFolder}/.astro,type=volume"
+	],
 	"containerEnv": {
-		"PORT": "3000",
-		"WORK_DIR": "${containerWorkspaceFolder}"
+		"PORT": "3000"
 	},
 	"forwardPorts": [3000],
 	"postStartCommand": "yarn dev",
