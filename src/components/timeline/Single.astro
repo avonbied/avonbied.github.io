@@ -1,0 +1,20 @@
+---
+import Item from '@components/timeline/Item.astro';
+
+const { items } = Astro.props;
+---
+
+<ul class="timeline">
+	{items.map(({title, content}) => (
+		<li><Item title={title}>{content}</Item></li>
+	))}
+</ul>
+
+<style lang="scss">
+.timeline {
+	list-style-type: none;
+	padding: 12px 24px;
+	margin-left: 20px;
+	border-left: 3px solid #ddd;
+}
+</style>

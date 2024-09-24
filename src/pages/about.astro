@@ -1,0 +1,65 @@
+---
+import Layout from '@layouts/Default.astro';
+import Hero from '@components/Hero.astro';
+import SkillCard from '@components/SkillCard.astro';
+
+const title = 'About Me';
+
+const skills = [
+	{ title: 'Business Development', description: 'Identifying, planning, building new business opportunities using process automation.', icon: 'checklist' },
+	{ title: 'Migration Assessment', description: 'Analysis of services & infrastructure for cost-effective and painless platform migrations.', icon: 'cloud-upload' },
+	{ title: 'Cloud Development', description: 'Solutioning of end-to-end roadmaps for secure cloud-native/hybrid applications leveraging the best of class services.', icon: 'code' },
+	{ title: 'Infrastructure Automation', description: 'Reducing human errors while enabling faster delivery of complaint and predictable services and applications.', icon: 'circuitry' },
+	// { title: 'Infrastructure Automation', description: 'Corporis voluptates tenetur laudantium. Corporis voluptates tenetur laudantium. Corporis voluptates tenetur laudantium. Corporis voluptates tenetur laudantium.', icon: 'terminal' },
+	// { title: 'Infrastructure Automation', description: 'Corporis voluptates tenetur laudantium. Corporis voluptates tenetur laudantium. Corporis voluptates tenetur laudantium. Corporis voluptates tenetur laudantium.', icon: 'terminal' },
+]
+---
+ 
+<Layout title={title}>
+	<section>
+		<h2 class="section-title">Background</h2>
+		<div class="content">
+			<p>Hi there! I'm a Houston-based consultant at Accenture and I have a passion for helping clients transform their businesses with the power of cloud computing.
+				Whether it's AWS, Azure, Google Cloud, or any other platform, I have the skills and experience to design, implement, and optimize cloud solutions that meet the needs of clients.</p>
+
+			<p>I believe that cloud computing is not only a technological trend, but also a strategic advantage that can enhance security, reduce costs, and enable innovation.
+				That's why I aspire to leverage cloud offerings to increase the security, cost-effectiveness, and fluidity of business processes. If you're looking for a cloud expert who can deliver results with enthusiasm and professionalism, look no further than me!</p>
+		</div>
+	</section>
+	<section>
+		<h2 class="section-title">Critical Skills</h2>
+		<div class="skills-list">
+			{skills.map(({title, description, icon}) => <SkillCard title={title} description={description} icon={icon}/>)}
+		</div>
+	</section>
+</Layout>
+
+<style>
+section {
+	padding: 8px 12px 0;
+	& p {
+		/* text-indent: 30pt; */
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	.section-title {
+		text-align: center;
+		padding: 0.5em 0;
+	}
+}
+.skills-list {
+	display: flex;
+	flex-flow: row wrap;
+	gap: 3rem;
+	color: #fff;
+	justify-content: space-around;
+}
+@media (min-width: 50rem) {
+	section {
+		padding: 8px 10%;
+	}
+	.skills-list {
+		gap: 2rem;
+	}
+}
+</style>

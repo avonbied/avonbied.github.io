@@ -1,0 +1,39 @@
+---
+export interface Props {
+	title?: string;
+	size?: 'small' | 'medium' | 'large';
+}
+
+const {title} = Astro.props;
+---
+
+<article class="item">
+	{title ? <h3>{title}</h3> : null}
+	<section>
+		<slot />
+	</section>
+</article>
+
+<style lang="scss">
+.item {
+	color: #222;
+	background-color: #fff;
+	width: 28em;
+	border-radius: 8px;
+	overflow: hidden;
+	margin: 12px 0;
+	h3 {
+		display: block;
+		background-color: #aaa;
+		text-align: center;
+		padding: 8px 12px;
+		font-size: larger;
+	}
+	section {
+		display: flex;
+		flex-wrap: wrap;
+		padding: 12px;
+		min-height: 150px;
+	}
+}
+</style>

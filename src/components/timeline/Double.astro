@@ -1,0 +1,67 @@
+---
+import Item from '@components/timeline/Item.astro';
+
+export interface Props {
+	items: any[];
+	size?: 'small' | 'medium' | 'large';
+	startRight?: boolean;
+}
+
+const { items, startRight = false } = Astro.props;
+
+const pos = (id: number) => {
+	return ((id + +startRight) % 2 === 0 ? 'left' : 'right');
+}
+---
+
+<ul class="timeline">
+	{items.map(({title, content}, id) => (
+		<li class:list={[pos(id), 'row']}><Item title={title}>{content}</Item></li>
+	))}
+</ul>
+
+<style lang="scss">
+@use 'sass:math';
+$dotSize: 32px;
+$barSize: 8px;
+.timeline {
+	position: relative;
+	list-style-type: none;
+	padding: 12px 24px;
+	width: 1096px;
+	margin: auto;
+	&::after {
+		content: "";
+		position: absolute;
+		background-color: #939597;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		width: $barSize;
+		margin-left: -(math.div($barSize, 2));
+	}
+	.row {
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		&::after {
+			content: "";
+			position: absolute;
+			width: $dotSize;
+			height: $dotSize;
+			left: 50%;
+			margin-left: -(math.div($dotSize, 2));
+			background-color: #fff;
+			// border: 5px solid #f5df4d;
+			border-radius: 50%;
+			z-index: 1;
+		}
+	}
+	.right {
+		justify-content: end;
+	}
+	.left {
+		justify-content: start;
+	}
+}
+</style>

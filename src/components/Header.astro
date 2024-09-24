@@ -1,0 +1,33 @@
+---
+import Link from '@components/HeaderLink.astro';
+
+const navLinks = [
+	{name: 'Home', url: '/'},
+	{name: 'About Me', url: '/about'},
+	{name: 'My Story', url: 'https://github.com/avonbied'},
+	// {name: 'Contact Me', url: '/contact'}
+];
+
+// const pages = await Astro.glob('../pages/*.astro');
+// pages.forEach(p => console.log(`${p.file}: ${p.url}`));
+---
+
+<header>
+	<nav>
+		{navLinks.map(link => <Link url={link.url} name={link.name} />)}
+	</nav>
+</header>
+
+<style lang="scss">
+header {
+	padding: 0 12px;
+	background-color: #000;
+	nav {
+		display: flex;
+		font: 1em sans-serif;
+		padding: 0 8px;
+		justify-content: center;
+		align-items: stretch;
+	}
+}
+</style>

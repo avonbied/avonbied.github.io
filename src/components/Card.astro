@@ -1,0 +1,86 @@
+---
+export interface Props {
+	title: string;
+	subtitle?: string;
+	image?: string;
+	isVertical?: boolean;
+}
+const {
+	title, subtitle, image, isVertical = false
+} = Astro.props;
+---
+
+<article class:list={[{ vertical: isVertical }]}>
+	{image && <img src={image} alt="" />}
+	<div class="card-content">
+		<header class="card-header">
+			<h3>{title ?? "Title Placeholder"}</h3>
+			{subtitle && <h4>{subtitle}</h4>}
+		</header>
+		<div>
+			<slot />
+		</div>
+	</div>
+</article>
+
+<style lang="scss">
+$imageWidth: 400px;
+$imageHeight: 400px;
+article {
+	display: flex;
+	flex-flow: column nowrap;
+	padding: 0;
+	max-width: $imageWidth;
+	background: #fff;
+	border-radius: 8px;
+	overflow: hidden;
+	img {
+		height: $imageHeight;
+		width: $imageWidth;
+	}
+	.card-content {
+		display: flex;
+		flex-flow: column nowrap;
+		:global(*) {
+			color: #000;
+		}
+		.card-header {
+			display: flex;
+			flex-flow: column;
+			background-color: #dddddd;
+			padding: 16px 16px 6px;
+			line-height: 1.1;
+			justify-content: center;
+			h3 { font-size: 24pt; }
+			h4 { font-size: 16pt; }
+		}
+		div {
+			padding: 6px 16px 8px;
+			flex: 1 1 100%;
+		}
+	}
+	&.vertical {
+		flex-flow: column;
+		.card-header {
+			text-align: center;
+			h3 {
+				order: 2;
+			}
+		}
+	}
+}
+@media only screen and (min-width: 60em) {
+	article {
+		flex-flow: row;
+		max-height: ($imageHeight * 1.25);
+		max-width: 110ch;
+		img {
+			width: ($imageWidth * 1.25);
+			height: ($imageHeight * 1.25);
+		}
+		.card-header {
+			h3 { font-size: 36pt; }
+		}
+	}
+}
+</style>

@@ -1,0 +1,36 @@
+---
+import Card from '@components/Card.astro';
+
+interface Props {
+	title?: string;
+	cardData: any[];
+}
+/**
+ *  {
+		title?: string;
+		// style?: CSSProperties;
+		size?: 'small' | 'normal' | 'large';
+		children: string
+	}
+ */
+const { title, cardData } = Astro.props;
+---
+
+<section>
+	{title ? <h2 style='font-size:32pt;'>{title}</h2> : ''}
+	<div style={{display: 'flex', flexFlow: 'row wrap', justifyContent: 'space-around', paddingTop: '16px'}}>
+		{cardData.map(c => <Card title={c.title}>{c.children}</Card>)}
+	</div>
+</section>
+
+<style>
+	h2 {
+		font-size: 32pt;
+	}
+	div {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		padding-top: 16px;
+	}
+</style>

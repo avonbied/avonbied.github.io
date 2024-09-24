@@ -1,0 +1,29 @@
+---
+import BaseLayout from '@layouts/Default.astro';
+import Hero from '@components/Hero.astro';
+import Pill from '@components/Pill.astro';
+
+export interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+	tags?: string[];
+}
+
+const { title, description, tags } = Astro.props;
+---
+
+<BaseLayout>
+	<!-- <a class="back-link" href="/story/"><Icon icon="arrow-left" /> Work</a> -->
+	<Hero title={title} align="start">
+		<div class="details">
+			<div class="tags">
+				{tags?.map((t) => <Pill>{t}</Pill>)}
+			</div>
+			<p class="description">{description}</p>
+		</div>
+	</Hero>
+	<slot />
+</BaseLayout>
+
+<style></style>

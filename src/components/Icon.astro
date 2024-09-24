@@ -1,0 +1,23 @@
+---
+import { iconPaths } from '@utils/IconPaths';
+
+export interface Props {
+	icon: keyof typeof iconPaths;
+	color?: string;
+	size?: string;
+	alt?: string;
+}
+
+const { icon, size = '12px', alt } = Astro.props;
+const iconAttr = iconPaths[icon];
+---
+
+<img src={`${iconAttr.src}`} alt={alt ?? iconAttr.alt} />
+
+<style define:vars={{ size }}>
+img {
+	vertical-align: middle;
+	width: var(--size, 1em);
+	height: var(--size, 1em);
+}
+</style>
