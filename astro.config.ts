@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://avonbied.github.io',
+	site: process.env.SITE_URL,
 	integrations: [sitemap()],
 	server: {
 		port: Number(process.env.PORT ?? 8080),

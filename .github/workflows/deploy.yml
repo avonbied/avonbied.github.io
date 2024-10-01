@@ -17,6 +17,7 @@ concurrency:
 
 env:
   BUILD_PATH: .
+  SITE_URL: https://avonbied.github.io
 
 jobs:
   build:
