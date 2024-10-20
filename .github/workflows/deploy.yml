@@ -40,10 +40,10 @@ jobs:
       - name: Build with Astro
         run: |
           yarn astro build \
-            --site "${{ steps.pages.outputs.origin }}" \
             --base "${{ steps.pages.outputs.base_path }}"
         working-directory: ${{ env.BUILD_PATH }}
-        env: "${{}}"
+        env:
+          SITE_URL: "${{ steps.pages.outputs.origin }}"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
