@@ -1,0 +1,64 @@
+---
+interface Props {
+	title: string;
+	href: string;
+}
+
+const { title, href } = Astro.props;
+---
+
+<aside>
+	<h2>{title}</h2>
+	<a href={href}><slot /></a>
+</aside>
+
+<style lang="scss">
+$accentColor: #589597;
+aside {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	padding: 3rem 1.5rem;
+	h2 {
+		font-size: 2em;
+		text-align: center;
+	}
+	a {
+		position: relative;
+		display: flex;
+		place-content: center;
+		gap: 0.8em;
+		text-align: center;
+		padding: 0.56em 2em;
+		border-radius: 2em;
+		text-decoration: none;
+		line-height: 1.1;
+		overflow: hidden;
+		white-space: nowrap;
+		background-color: $accentColor;
+		&:focus, &:hover {
+			background-color: #{$accentColor}ac;
+			text-decoration: 1px solid white underline;
+		}
+	}
+}
+
+@media (min-width: 50em) {
+	aside {
+		padding: 4rem;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		gap: 2rem;
+		h2 {
+			font-size: 3em;
+			text-align: left;
+		}
+		a {
+			padding: 1.125rem 2.5rem;
+			font-size: 2em;
+		}
+	}
+}
+</style>
