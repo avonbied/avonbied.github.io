@@ -1,0 +1,63 @@
+---
+interface Props {
+	title: string;
+	tagline?: string;
+	img_src?: string;
+	align?: 'start' | 'center';
+}
+
+const { align = 'center', tagline, img_src, title } = Astro.props;
+---
+
+<header class:list={['hero', align]}>
+	<div>
+		{ img_src ? <img src={img_src} alt={img_src}/> : null }
+		<h1 class="title">{title}</h1>
+		{tagline && <p class="tagline">{tagline}</p>}
+	</div>
+	<slot />
+</header>
+
+<style lang="scss">
+.hero {
+	display: flex;
+	flex-flow: column nowrap;
+	img {
+		
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+	}
+	font-size: var(--text-lg);
+	text-align: center;
+}
+
+.title,
+.tagline {
+	max-width: 37ch;
+	margin-inline: auto;
+}
+
+.title {
+	font-size: var(--text-3xl);
+}
+
+@media (min-width: 50em) {
+	.hero {
+		font-size: var(--text-xl);
+	}
+
+	.start {
+		text-align: start;
+	}
+
+	.start .title,
+	.start .tagline {
+		margin-inline: unset;
+	}
+
+	.title {
+		font-size: var(--text-5xl);
+	}
+}
+</style>
