@@ -1,0 +1,25 @@
+{
+	"name": "@<user_or_org>/<repo_name>",
+	"version": "1.0.0",
+	"license": "MIT",
+	"vendor": true,
+	"tasks": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"check": {
+			"command": "astro check && tsc --noEmit",
+			"dependencies": ["build"]
+		},
+		"preview": {
+			"command": "astro preview",
+			"dependencies": ["check"]
+		}
+	},
+	"imports": {
+		"@astrojs/check": "npm:@astrojs/check@latest",
+		"@astrojs/sitemap": "npm:@astrojs/sitemap@latest",
+		"@vite-pwa/astro": "npm:@vite-pwa/astro@latest",
+		"astro": "npm:astro@latest",
+		"sass": "npm:sass@latest"
+	}
+}
