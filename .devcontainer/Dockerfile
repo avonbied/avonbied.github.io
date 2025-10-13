@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM denoland/deno:alpine AS deno
+FROM docker.io/denoland/deno:alpine AS deno
 FROM alpine:latest
 
 ARG WORK_DIR=/home/app

@@ -2,15 +2,17 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import pwa from '@vite-pwa/astro';
 
-const DEFAULT_PORT = 8080;
+import getConfig from './project.config.ts';
+
+const defaultConfig = getConfig();
 
 // https://astro.build/config
 export default defineConfig({
-	site: process.env.SITE_URL ?? `http://localhost:${process.env.PORT ?? DEFAULT_PORT}`,
-	base: process.env.SITE_BASE,
+	site: `${defaultConfig.site}:${defaultConfig.port}`,
+	base: defaultConfig.base,
 	integrations: [sitemap(), pwa()],
 	server: {
-		port: Number(process.env.PORT ?? DEFAULT_PORT),
+		port: defaultConfig.port,
 		host: true,
 	},
 	vite: {
