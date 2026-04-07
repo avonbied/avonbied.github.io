@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 FROM docker.io/denoland/deno:alpine AS deno
-FROM alpine:latest
+FROM ghcr.io/devcontainers/templates/alpine:3.4.0
 
 ARG WORK_DIR=/home/app
 ARG CACHE_DIR=/cache/deno
@@ -16,7 +16,7 @@ ENV DENO_NO_PROMPT=1
 ENV DENO_NO_UPDATE_CHECK=1
 
 RUN apk update && \
-	apk add --no-cache git libstdc++
+	apk add --no-cache git libstdc++ gnupg
 
 WORKDIR ${WORK_DIR}
 
